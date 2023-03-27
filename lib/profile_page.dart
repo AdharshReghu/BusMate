@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'Bottom_app_bars.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -11,19 +11,14 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: Colors.blueAccent,
-        items: <Widget>[
-          Icon(Icons.add, size: 30),
-          Icon(Icons.list, size: 30),
-          Icon(Icons.compare_arrows, size: 30),
-        ],
-        onTap: (index) {
-          //Handle button tap
-        },
+    return MaterialApp(
+      home: Scaffold(
+        appBar: displayAppBar(
+            "Profile Page"), //function to display app bar is defined in the Bottom_app_bars.dart file
+        bottomNavigationBar:
+            displayNavBar(), //function to display Bottom navigation bar is defined in the Bottom_app_bars.dart file
+        body: Container(color: const Color(0xFFEBE8E8)),
       ),
-      body: Container(color: Colors.blueAccent),
     );
   }
 }
