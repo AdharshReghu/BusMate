@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'constants.dart';
 
 //call this function to display bottom navigation bar
 CurvedNavigationBar displayNavBar() {
@@ -19,7 +20,7 @@ CurvedNavigationBar displayNavBar() {
 }
 
 //Call this function  to display AppBar in every page by passing title to be displayed as the parameter
-AppBar displayAppBar(String Heading) {
+AppBar displayAppBar(String heading) {
   return AppBar(
     backgroundColor: const Color(0xFFFFBE9F),
     leading: Transform.scale(
@@ -29,8 +30,8 @@ AppBar displayAppBar(String Heading) {
           child: Image.asset("assets/App bar icon.png"),
         )),
     title: Text(
-      "$Heading",
-      style: TextStyle(color: Colors.black),
+      "$heading",
+      style: kHeadingStyle,
     ),
     centerTitle: true,
   );
