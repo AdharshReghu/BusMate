@@ -12,6 +12,11 @@ const TextStyle kHeadingStyle =
 const TextStyle kNormalText =
     TextStyle(fontFamily: kAppFont, fontSize: 23, fontWeight: FontWeight.bold);
 
+//Background color used in login page and also as the color of appbars and bottom NavBar
+const Color kPrimaryColor = Color(0xFFFFBE9F);
+//LoginPage top and bottom container colour
+const Color kLoginPageBar = Color(0XFF5769AC);
+
 //button colors
 Color kRedButton = const Color(0xFFE96160);
 Color kBlueButton = const Color(0xFF5769AC);
@@ -24,6 +29,3 @@ ButtonStyle kBlueButtonStyle = ElevatedButton.styleFrom(
 ButtonStyle kRedButtonStyle = ElevatedButton.styleFrom();
 
 //Background color used in login page and also as the color of appbars and bottom NavBar
-const Color kPrimaryColor = Color(0xFFFFBE9F);
-//LoginPage top and bottom container colour
-const Color kLoginPageBar = Color(0XFF5769AC);
