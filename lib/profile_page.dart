@@ -31,11 +31,34 @@ class _ProfilePageState extends State<ProfilePage> {
           child: Column(
             //column containing 3 sections , one section for displaying profile picture of user,name and email, one section for displaying the data of the user,pne section for sign-out button
             children: [
-              Expanded(child: Text("user nsme and logo")),
+              Expanded(
+                  child: Container(
+                padding: EdgeInsets.only(top: 30),
+                child: Column(
+                  children: [
+                    CircleAvatar(
+                      backgroundImage: NetworkImage(''),
+                      radius: 55,
+                    ),
+                    Text(
+                      "User Name",
+                      style: TextStyle(
+                        fontSize: 25,
+                      ),
+                    ),
+                    Text(
+                      "useremail@gmail.com",
+                      style: TextStyle(
+                        fontSize: 15,
+                      ),
+                    )
+                  ],
+                ),
+              )),
               Expanded(
                 flex: 2,
                 child: Container(
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   margin: const EdgeInsets.fromLTRB(30, 20, 30, 10),
                   decoration: BoxDecoration(
                       boxShadow: const [
@@ -68,8 +91,21 @@ class _ProfilePageState extends State<ProfilePage> {
                         style: kNormalText,
                       ),
                       Center(
-                        child: ElevatedButton(
-                            onPressed: () {}, child: Text("UPDATE DETAILS")),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 30),
+                          child: SizedBox(
+                            width: double.infinity,
+                            height: 50,
+                            child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                    backgroundColor: kRedButton,
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(20))),
+                                onPressed: () {},
+                                child: const Text("UPDATE DETAILS")),
+                          ),
+                        ),
                       ),
                     ],
                   ),
@@ -80,8 +116,9 @@ class _ProfilePageState extends State<ProfilePage> {
                 child: Align(
                   alignment: Alignment.bottomRight,
                   child: ElevatedButton(
+                    style: kBlueButtonStyle,
                     onPressed: () {},
-                    child: Text("Sign Out"),
+                    child: const Text("Sign Out"),
                   ),
                 ),
               )
