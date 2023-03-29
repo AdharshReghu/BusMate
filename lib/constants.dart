@@ -8,8 +8,11 @@ const String kAppFont = "Imprima";
 const TextStyle kHeadingStyle =
     TextStyle(color: Colors.black, fontFamily: kAppFont, fontSize: 25);
 
+//Normal Text
+const TextStyle kNormalText = TextStyle(fontFamily: kAppFont, fontSize: 23);
+
 //bolded normal text
-const TextStyle kNormalText =
+const TextStyle kNormalTextBolded =
     TextStyle(fontFamily: kAppFont, fontSize: 23, fontWeight: FontWeight.bold);
 
 //Background color used in login page and also as the color of appbars and bottom NavBar
@@ -26,7 +29,12 @@ ButtonStyle kBlueButtonStyle = ElevatedButton.styleFrom(
     backgroundColor: kBlueButton,
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)));
 
-ButtonStyle kRedButtonStyle = ElevatedButton.styleFrom();
+ButtonStyle kRedButtonStyle = ElevatedButton.styleFrom(
+    backgroundColor: kRedButton,
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)));
 
 //background color of all the pages
 Color kBackgroundColor = const Color(0xFFEBE8E8);
+
+//Red button Text Style
+const TextStyle kRedButtonText = TextStyle(fontSize: 25);

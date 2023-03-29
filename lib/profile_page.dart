@@ -80,15 +80,15 @@ class _ProfilePageState extends State<ProfilePage> {
                     children: [
                       Text(
                         "Student ID : #12345678",
-                        style: kNormalText,
+                        style: kNormalTextBolded,
                       ),
                       Text(
                         "Division : IT",
-                        style: kNormalText,
+                        style: kNormalTextBolded,
                       ),
                       Text(
                         "Semester : 6",
-                        style: kNormalText,
+                        style: kNormalTextBolded,
                       ),
                       Center(
                         child: Padding(
