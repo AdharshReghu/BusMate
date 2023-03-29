@@ -27,7 +27,7 @@ class _ProfilePageState extends State<ProfilePage> {
         body: Container(
           //overall container covering the body of the profile page
           width: double.infinity,
-          color: const Color(0xFFEBE8E8),
+          color: kBackgroundColor,
           child: Column(
             //column containing 3 sections , one section for displaying profile picture of user,name and email, one section for displaying the data of the user,pne section for sign-out button
             children: [
