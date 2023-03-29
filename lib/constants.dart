@@ -22,3 +22,8 @@ ButtonStyle kBlueButtonStyle = ElevatedButton.styleFrom(
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)));
 
 ButtonStyle kRedButtonStyle = ElevatedButton.styleFrom();
+
+//Background color used in login page and also as the color of appbars and bottom NavBar
+const Color kPrimaryColor = Color(0xFFFFBE9F);
+//LoginPage top and bottom container colour
+const Color kLoginPageBar = Color(0XFF5769AC);
