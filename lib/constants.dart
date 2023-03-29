@@ -10,7 +10,11 @@ const TextStyle kHeadingStyle =
 
 //bolded normal text
 const TextStyle kNormalText =
-    TextStyle(fontFamily: kAppFont, fontSize: 23, fontWeight: FontWeight.bold);
+    TextStyle(fontFamily: kAppfont, fontSize: 23, fontWeight: FontWeight.bold);
+//Background color used in login page and also as the color of appbars and bottom NavBar
+const Color kPrimaryColor = Color(0xFFFFBE9F);
+//LoginPage top and bottom container colour
+const Color kLoginPageBar = Color(0XFF5769AC);
 
 //button colors
 Color kRedButton = const Color(0xFFE96160);
