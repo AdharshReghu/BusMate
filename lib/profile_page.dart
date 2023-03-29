@@ -59,20 +59,8 @@ class _ProfilePageState extends State<ProfilePage> {
                 flex: 2,
                 child: Container(
                   padding: const EdgeInsets.all(10),
-                  margin: const EdgeInsets.fromLTRB(30, 20, 30, 10),
-                  decoration: BoxDecoration(
-                      boxShadow: const [
-                        BoxShadow(
-                          blurRadius: 1,
-                          offset: Offset(0, 3),
-                        ),
-                      ],
-                      color: Colors.white,
-                      border: Border.all(
-                        color: Colors.white,
-                      ),
-                      borderRadius:
-                          const BorderRadius.all(Radius.circular(30))),
+                  margin: const EdgeInsets.fromLTRB(20, 20, 20, 10),
+                  decoration: kCurvedContainer,
                   width: double.infinity,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,

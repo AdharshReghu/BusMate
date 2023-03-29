@@ -38,3 +38,17 @@ Color kBackgroundColor = const Color(0xFFEBE8E8);
 
 //Red button Text Style
 const TextStyle kRedButtonText = TextStyle(fontSize: 25);
+
+//curved container decoration
+BoxDecoration kCurvedContainer = BoxDecoration(
+    boxShadow: const [
+      BoxShadow(
+        blurRadius: 1,
+        offset: Offset(0, 3),
+      ),
+    ],
+    color: Colors.white,
+    border: Border.all(
+      color: Colors.white,
+    ),
+    borderRadius: const BorderRadius.all(Radius.circular(30)));

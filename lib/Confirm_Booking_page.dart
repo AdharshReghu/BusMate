@@ -48,8 +48,40 @@ class _ConfirmBookingState extends State<ConfirmBooking> {
                 Expanded(
                     flex: 3,
                     child: Container(
+                      decoration: kCurvedContainer,
+                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      width: double.infinity,
                       margin: const EdgeInsets.symmetric(horizontal: 20),
-                      color: Colors.white,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Route : Aluva",
+                            style: kNormalTextBolded,
+                          ),
+                          Text(
+                            "Stop : Bank Junction",
+                            style: kNormalTextBolded,
+                          ),
+                          Text(
+                            "Ticket Type : Monthly",
+                            style: kNormalTextBolded,
+                          ),
+                          Text(
+                            "Amount : 80/-,",
+                            style: kNormalTextBolded,
+                          ),
+                          Align(
+                            alignment: Alignment.center,
+                            child: ElevatedButton(
+                              style: kBlueButtonStyle,
+                              onPressed: () {},
+                              child: const Text("Go Back"),
+                            ),
+                          ),
+                        ],
+                      ),
                     )),
                 Padding(
                   padding:
