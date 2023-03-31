@@ -8,8 +8,11 @@ const String kAppFont = "Imprima";
 const TextStyle kHeadingStyle =
     TextStyle(color: Colors.black, fontFamily: kAppFont, fontSize: 25);
 
+//Normal Text
+const TextStyle kNormalText = TextStyle(fontFamily: kAppFont, fontSize: 23);
+
 //bolded normal text
-const TextStyle kNormalText =
+const TextStyle kNormalTextBolded =
     TextStyle(fontFamily: kAppFont, fontSize: 23, fontWeight: FontWeight.bold);
 //Background color used in login page and also as the color of appbars and bottom NavBar
 const Color kPrimaryColor = Color(0xFFFFBE9F);

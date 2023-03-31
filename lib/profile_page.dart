@@ -27,7 +27,7 @@ class _ProfilePageState extends State<ProfilePage> {
         body: Container(
           //overall container covering the body of the profile page
           width: double.infinity,
-          color: const Color(0xFFEBE8E8),
+          color: kBackgroundColor,
           child: Column(
             //column containing 3 sections , one section for displaying profile picture of user,name and email, one section for displaying the data of the user,pne section for sign-out button
             children: [
@@ -59,20 +59,8 @@ class _ProfilePageState extends State<ProfilePage> {
                 flex: 2,
                 child: Container(
                   padding: const EdgeInsets.all(10),
-                  margin: const EdgeInsets.fromLTRB(30, 20, 30, 10),
-                  decoration: BoxDecoration(
-                      boxShadow: const [
-                        BoxShadow(
-                          blurRadius: 1,
-                          offset: Offset(0, 3),
-                        ),
-                      ],
-                      color: Colors.white,
-                      border: Border.all(
-                        color: Colors.white,
-                      ),
-                      borderRadius:
-                          const BorderRadius.all(Radius.circular(30))),
+                  margin: const EdgeInsets.fromLTRB(20, 20, 20, 10),
+                  decoration: kCurvedContainer,
                   width: double.infinity,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -80,15 +68,15 @@ class _ProfilePageState extends State<ProfilePage> {
                     children: [
                       Text(
                         "Student ID : #12345678",
-                        style: kNormalText,
+                        style: kNormalTextBolded,
                       ),
                       Text(
                         "Division : IT",
-                        style: kNormalText,
+                        style: kNormalTextBolded,
                       ),
                       Text(
                         "Semester : 6",
-                        style: kNormalText,
+                        style: kNormalTextBolded,
                       ),
                       Center(
                         child: Padding(
