@@ -11,7 +11,6 @@ const TextStyle kHeadingStyle =
 //bolded normal text
 const TextStyle kNormalText =
     TextStyle(fontFamily: kAppFont, fontSize: 23, fontWeight: FontWeight.bold);
-
 //Background color used in login page and also as the color of appbars and bottom NavBar
 const Color kPrimaryColor = Color(0xFFFFBE9F);
 //LoginPage top and bottom container colour
@@ -26,6 +25,26 @@ ButtonStyle kBlueButtonStyle = ElevatedButton.styleFrom(
     backgroundColor: kBlueButton,
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)));
 
-ButtonStyle kRedButtonStyle = ElevatedButton.styleFrom();
+ButtonStyle kRedButtonStyle = ElevatedButton.styleFrom(
+    backgroundColor: kRedButton,
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)));
 
-//Background color used in login page and also as the color of appbars and bottom NavBar
+//background color of all the pages
+Color kBackgroundColor = const Color(0xFFEBE8E8);
+
+//Red button Text Style
+const TextStyle kRedButtonText = TextStyle(fontSize: 25);
+
+//curved container decoration
+BoxDecoration kCurvedContainer = BoxDecoration(
+    boxShadow: const [
+      BoxShadow(
+        blurRadius: 1,
+        offset: Offset(0, 3),
+      ),
+    ],
+    color: Colors.white,
+    border: Border.all(
+      color: Colors.white,
+    ),
+    borderRadius: const BorderRadius.all(Radius.circular(30)));
