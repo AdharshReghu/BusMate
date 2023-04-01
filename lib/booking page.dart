@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'constants.dart';
 import 'package:busmate/Bottom_app_bars.dart';
-import 'package:dropdown_button2/dropdown_button2.dart';
-import 'lists.dart';
+import 'package:snippet_coder_utils/FormHelper.dart';
 
 void main() {
   runApp(BookingPage());
@@ -10,15 +9,40 @@ void main() {
 
 class BookingPage extends StatefulWidget {
   const BookingPage({Key? key}) : super(key: key);
-
   @override
   State<BookingPage> createState() => _BookingPageState();
 }
 
 class _BookingPageState extends State<BookingPage> {
-  String? selectedRoute;
-  String? selectedStop;
-  String? selectedTicketType;
+  List<dynamic> routes = [];
+  List<dynamic> stopMaster = [];
+  List<dynamic> stops = [];
+  String? stopId;
+  String? typeId;
+  String? routeId;
+  @override
+  void initState() {
+    super.initState();
+    this.routes.add({"id": 1, "label": "Aluva Route"});
+    this.routes.add({"id": 2, "label": "Vytilla Route"});
+    this.stopMaster = [
+      {"ID": 1, "Name": "Kalamassery", "ParentId": 1},
+      {"ID": 2, "Name": "Muttom", "ParentId": 1},
+      {"ID": 3, "Name": "Ambattukavu", "ParentId": 1},
+      {"ID": 4, "Name": "Pulinchodu", "ParentId": 1},
+      {"ID": 5, "Name": "Aluva", "ParentId": 1},
+      {"ID": 1, "Name": "CUSAT Junction", "ParentId": 2},
+      {"ID": 2, "Name": "Kalamassery", "ParentId": 2},
+      {"ID": 3, "Name": "PathadiPalam", "ParentId": 2},
+      {"ID": 4, "Name": "Edappaly", "ParentId": 2},
+      {"ID": 5, "Name": "Changampuzha Park", "ParentId": 2},
+      {"ID": 6, "Name": "Palarivattom", "ParentId": 2},
+      {"ID": 7, "Name": "Kaloor", "ParentId": 2},
+      {"ID": 8, "Name": "Vytilla", "ParentId": 2},
+      {"ID": 9, "Name": "Kadavanthara", "ParentId": 2},
+      {"ID": 10, "Name": "Panampilly Nagar", "ParentId": 2}
+    ];
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -58,288 +82,72 @@ class _BookingPageState extends State<BookingPage> {
                     margin: const EdgeInsets.symmetric(horizontal: 20),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
-                        color: kLoginPageBar),
+                        color: Colors.white),
                     width: double.infinity,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
-                          "Route :",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20),
+                        FormHelper.dropDownWidgetWithLabel(
+                          context,
+                          "Route",
+                          "Select Your Route",
+                          this.routeId,
+                          this.routes,
+                          (onChangedVal) {
+                            this.routeId = onChangedVal;
+                            print("Selected Country : $onChangedVal");
+                            this.stops = this
+                                .stopMaster
+                                .where((stateItem) =>
+                                    stateItem["ParentId"].toString() ==
+                                    onChangedVal.toString())
+                                .toList();
+                            this.stopId = null;
+                            setState(() {});
+                          },
+                          (onValidateVal) {
+                            if (onValidateVal == null) {
+                              return "Please Select a route";
+                            }
+                            return null;
+                          },
+                          borderColor: Colors.blue,
+                          borderFocusColor: Colors.redAccent,
+                          borderRadius: 10,
+                          optionValue: "id",
+                          optionLabel: "label",
+                          textColor: Colors.black,
+                          hintColor: Colors.black,
                         ),
-                        DropdownButtonHideUnderline(
-                          child: DropdownButton2(
-                            alignment: AlignmentDirectional.center,
-                            isExpanded: true,
-                            hint: Row(
-                              children: const [
-                                SizedBox(
-                                  width: 4,
-                                ),
-                                Expanded(
-                                  child: Text(
-                                    'Select Route',
-                                    style: TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            items: routes
-                                .map((item) => DropdownMenuItem<String>(
-                                      value: item,
-                                      child: Text(
-                                        item,
-                                        style: const TextStyle(
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.black,
-                                        ),
-                                        overflow: TextOverflow.ellipsis,
-                                      ),
-                                    ))
-                                .toList(),
-                            value: selectedRoute,
-                            onChanged: (value) {
-                              setState(() {
-                                selectedRoute = value as String;
-                              });
-                            },
-                            buttonStyleData: ButtonStyleData(
-                              height: 50,
-                              width: double.infinity,
-                              padding:
-                                  const EdgeInsets.only(left: 14, right: 14),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(14),
-                                border: Border.all(
-                                  color: Colors.black26,
-                                ),
-                                color: Colors.white,
-                              ),
-                              elevation: 2,
-                            ),
-                            iconStyleData: const IconStyleData(
-                              icon: Icon(
-                                Icons.arrow_forward_ios_outlined,
-                              ),
-                              iconSize: 14,
-                              iconEnabledColor: Colors.black,
-                              iconDisabledColor: Colors.grey,
-                            ),
-                            dropdownStyleData: DropdownStyleData(
-                                maxHeight: 200,
-                                width: 300,
-                                padding: null,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(14),
-                                  color: Colors.white,
-                                ),
-                                elevation: 8,
-                                offset: const Offset(-20, 0),
-                                scrollbarTheme: ScrollbarThemeData(
-                                  radius: const Radius.circular(40),
-                                  thickness: MaterialStateProperty.all(6),
-                                  thumbVisibility:
-                                      MaterialStateProperty.all(true),
-                                )),
-                            menuItemStyleData: const MenuItemStyleData(
-                              height: 40,
-                              padding: EdgeInsets.only(left: 14, right: 14),
-                            ),
-                          ),
-                        ),
-                        const Text(
-                          "Stop :",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20),
-                        ),
-                        DropdownButtonHideUnderline(
-                          child: DropdownButton2(
-                            alignment: AlignmentDirectional.center,
-                            isExpanded: true,
-                            hint: Row(
-                              children: const [
-                                SizedBox(
-                                  width: 4,
-                                ),
-                                Expanded(
-                                  child: Text(
-                                    'Select Stop',
-                                    style: TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            items: routes
-                                .map((item) => DropdownMenuItem<String>(
-                                      value: item,
-                                      child: Text(
-                                        item,
-                                        style: const TextStyle(
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.black,
-                                        ),
-                                        overflow: TextOverflow.ellipsis,
-                                      ),
-                                    ))
-                                .toList(),
-                            value: selectedRoute,
-                            onChanged: (value) {
-                              setState(() {
-                                selectedRoute = value as String;
-                              });
-                            },
-                            buttonStyleData: ButtonStyleData(
-                              height: 50,
-                              width: double.infinity,
-                              padding:
-                                  const EdgeInsets.only(left: 14, right: 14),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(14),
-                                border: Border.all(
-                                  color: Colors.black26,
-                                ),
-                                color: Colors.white,
-                              ),
-                              elevation: 2,
-                            ),
-                            iconStyleData: const IconStyleData(
-                              icon: Icon(
-                                Icons.arrow_forward_ios_outlined,
-                              ),
-                              iconSize: 14,
-                              iconEnabledColor: Colors.black,
-                              iconDisabledColor: Colors.grey,
-                            ),
-                            dropdownStyleData: DropdownStyleData(
-                                maxHeight: 200,
-                                width: 300,
-                                padding: null,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(14),
-                                  color: Colors.white,
-                                ),
-                                elevation: 8,
-                                offset: const Offset(-20, 0),
-                                scrollbarTheme: ScrollbarThemeData(
-                                  radius: const Radius.circular(40),
-                                  thickness: MaterialStateProperty.all(6),
-                                  thumbVisibility:
-                                      MaterialStateProperty.all(true),
-                                )),
-                            menuItemStyleData: const MenuItemStyleData(
-                              height: 40,
-                              padding: EdgeInsets.only(left: 14, right: 14),
-                            ),
-                          ),
-                        ),
-                        const Text(
-                          "Ticket Type :",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20),
-                        ),
-                        DropdownButtonHideUnderline(
-                          child: DropdownButton2(
-                            alignment: AlignmentDirectional.center,
-                            isExpanded: true,
-                            hint: Row(
-                              children: const [
-                                SizedBox(
-                                  width: 4,
-                                ),
-                                Expanded(
-                                  child: Text(
-                                    'Select Ticket Type',
-                                    style: TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            items: ticketTypes
-                                .map((item) => DropdownMenuItem<String>(
-                                      value: item,
-                                      child: Text(
-                                        item,
-                                        style: const TextStyle(
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.black,
-                                        ),
-                                        overflow: TextOverflow.ellipsis,
-                                      ),
-                                    ))
-                                .toList(),
-                            value: selectedTicketType,
-                            onChanged: (value) {
-                              setState(() {
-                                selectedTicketType = value as String;
-                              });
-                            },
-                            buttonStyleData: ButtonStyleData(
-                              height: 50,
-                              width: double.infinity,
-                              padding:
-                                  const EdgeInsets.only(left: 14, right: 14),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(14),
-                                border: Border.all(
-                                  color: Colors.black26,
-                                ),
-                                color: Colors.white,
-                              ),
-                              elevation: 2,
-                            ),
-                            iconStyleData: const IconStyleData(
-                              icon: Icon(
-                                Icons.arrow_forward_ios_outlined,
-                              ),
-                              iconSize: 14,
-                              iconEnabledColor: Colors.black,
-                              iconDisabledColor: Colors.grey,
-                            ),
-                            dropdownStyleData: DropdownStyleData(
-                                maxHeight: 200,
-                                width: 300,
-                                padding: null,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(14),
-                                  color: Colors.white,
-                                ),
-                                elevation: 8,
-                                offset: const Offset(-20, 0),
-                                scrollbarTheme: ScrollbarThemeData(
-                                  radius: const Radius.circular(40),
-                                  thickness: MaterialStateProperty.all(6),
-                                  thumbVisibility:
-                                      MaterialStateProperty.all(true),
-                                )),
-                            menuItemStyleData: const MenuItemStyleData(
-                              height: 40,
-                              padding: EdgeInsets.only(left: 14, right: 14),
-                            ),
-                          ),
-                        ),
+                        FormHelper.dropDownWidgetWithLabel(
+                            context,
+                            "Stop",
+                            "Select Your Stop",
+                            this.stopId,
+                            this.stops, (onChangedVal) {
+                          this.stopId = onChangedVal;
+                          print("Selected Stop : $onChangedVal");
+                          this.stops = this
+                              .stopMaster
+                              .where(
+                                (stateItem) =>
+                                    stateItem["ParentId"].toString() ==
+                                    onChangedVal.toString(),
+                              )
+                              .toList();
+                          this.stopId = null;
+                          setState(() {});
+                        }, (onValidate) {
+                          return null;
+                        },
+                            borderColor: Colors.blueAccent,
+                            borderFocusColor: Colors.redAccent,
+                            borderRadius: 10,
+                            optionValue: "ID",
+                            optionLabel: "Name",
+                            textColor: Colors.black,
+                            hintColor: Colors.black),
                       ],
                     ),
                   )),

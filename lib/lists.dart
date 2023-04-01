@@ -1,6 +1,6 @@
 final List<String> routes = [
   'Aluva',
-  'Ernakulam',
+  'Vytilla',
 ];
 
 final List<String> ticketTypes = [

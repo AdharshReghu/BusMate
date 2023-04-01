@@ -38,6 +38,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   curved_navigation_bar: ^1.0.3 #latest version
   dropdown_button2: ^2.0.0
+  snippet_coder_utils: ^1.0.13
 
 dev_dependencies:
   flutter_test:
