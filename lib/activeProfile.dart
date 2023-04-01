@@ -75,7 +75,7 @@ class _ActiveProfileState extends State<ActiveProfile> {
                     Expanded(
                       //Generates a list of Active tickets which are scrollable
                       child: ListView.builder(
-                        itemCount: 3,
+                        itemCount: 5,
                         itemBuilder: (context, index) {
                           return Container(
                             margin: EdgeInsets.only(bottom: 20),

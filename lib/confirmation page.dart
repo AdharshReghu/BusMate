@@ -40,7 +40,8 @@ class _ConfirmationPageState extends State<ConfirmationPage> {
               Expanded(
                 flex: 4,
                 child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  padding: EdgeInsets.all(20),
+                  //padding: EdgeInsets.symmetric(horizontal: 20),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       color: kLoginPageBar),

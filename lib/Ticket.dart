@@ -19,7 +19,7 @@ class Ticket extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 188,
-      width: double.infinity,
+      width: 318,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30),
         color: Colors.white,
