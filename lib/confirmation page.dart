@@ -26,22 +26,29 @@ class _ConfirmationPageState extends State<ConfirmationPage> {
           color: kBackgroundColor,
           child: Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 20),
+              const Padding(
+                padding: EdgeInsets.only(top: 20),
                 child: Text(
                   "Yay Ride Booked",
                   style: kNormalText,
                 ),
               ),
               Expanded(child: Image.asset("assets/Bus.png")),
-              Divider(
+              const Divider(
                 color: Colors.black,
               ),
               Expanded(
                 flex: 4,
                 child: Container(
-                  color: kLoginPageBar,
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: kLoginPageBar),
                   margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                  child: Ticket(
+                      route: "Aluva",
+                      validity: "15 December",
+                      destination: "Kalamassery"),
                 ),
               ),
               Padding(
@@ -53,13 +60,13 @@ class _ConfirmationPageState extends State<ConfirmationPage> {
                   child: ElevatedButton(
                     style: kRedButtonStyle,
                     onPressed: () {},
-                    child: Text(
+                    child: const Text(
                       "Go Home",
                       style: kRedButtonText,
                     ),
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),
