@@ -6,7 +6,7 @@ const String kAppFont = "Imprima";
 
 //Text style to be used on the title of every appbar
 const TextStyle kHeadingStyle =
-    TextStyle(color: Colors.black, fontFamily: kAppFont, fontSize: 25);
+    TextStyle(color: Colors.black, fontFamily: kAppFont, fontSize: 27);
 
 //Normal Text
 const TextStyle kNormalText = TextStyle(fontFamily: kAppFont, fontSize: 23);
@@ -51,4 +51,5 @@ BoxDecoration kCurvedContainer = BoxDecoration(
     border: Border.all(
       color: Colors.white,
     ),
-    borderRadius: const BorderRadius.all(Radius.circular(30)));
+    borderRadius: const BorderRadius.all(Radius.circular(30))
+);

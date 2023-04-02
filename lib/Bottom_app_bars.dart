@@ -4,18 +4,22 @@ import 'constants.dart';
 
 //call this function to display bottom navigation bar
 CurvedNavigationBar displayNavBar() {
+  int currentIndex=0;
   return CurvedNavigationBar(
     color: kPrimaryColor,
     backgroundColor: Color(0xFFEBE8E8),
     animationDuration: Duration(milliseconds: 300),
-    items: const <Widget>[
-      Icon(Icons.history, size: 30),
+    items:[
+       Icon(Icons.history, size: 30),
       Icon(Icons.home, size: 30),
       Icon(Icons.supervised_user_circle, size: 30),
     ],
     onTap: (index) {
       //Handle button tap
+      currentIndex=index;
+      print(index);
     },
+  
   );
 }
 
@@ -24,7 +28,7 @@ AppBar displayAppBar(String heading) {
   return AppBar(
     backgroundColor: kPrimaryColor,
     leading: Transform.scale(
-        scale: 4,
+        scale: 3.3,
         child: Padding(
           padding: const EdgeInsets.only(left: 8, top: 7),
           child: Image.asset("assets/App bar icon.png"),
