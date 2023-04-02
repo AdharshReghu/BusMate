@@ -17,12 +17,17 @@ class _BookingPageState extends State<BookingPage> {
   List<dynamic> routes = [];
   List<dynamic> stopMaster = [];
   List<dynamic> stops = [];
+  List<dynamic> ticketType = [];
   String? stopId;
   String? typeId;
   String? routeId;
   @override
   void initState() {
     super.initState();
+    this.ticketType.add({"Id": 1, "Ticket": "Daily (₹10)"});
+    this.ticketType.add({"Id": 2, "Ticket": "Weekly (₹30)"});
+    this.ticketType.add({"Id": 3, "Ticket": "Monthly (₹80)"});
+
     this.routes.add({"id": 1, "label": "Aluva Route"});
     this.routes.add({"id": 2, "label": "Vytilla Route"});
     this.stopMaster = [
@@ -81,12 +86,15 @@ class _BookingPageState extends State<BookingPage> {
                         horizontal: 50, vertical: 30),
                     margin: const EdgeInsets.symmetric(horizontal: 20),
                     decoration: BoxDecoration(
+                        border: Border.all(
+                            color: kLoginPageBar,
+                            width: 5,
+                            style: BorderStyle.solid),
                         borderRadius: BorderRadius.circular(20),
                         color: Colors.white),
                     width: double.infinity,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         FormHelper.dropDownWidgetWithLabel(
                           context,
@@ -128,16 +136,6 @@ class _BookingPageState extends State<BookingPage> {
                             this.stops, (onChangedVal) {
                           this.stopId = onChangedVal;
                           print("Selected Stop : $onChangedVal");
-                          this.stops = this
-                              .stopMaster
-                              .where(
-                                (stateItem) =>
-                                    stateItem["ParentId"].toString() ==
-                                    onChangedVal.toString(),
-                              )
-                              .toList();
-                          this.stopId = null;
-                          setState(() {});
                         }, (onValidate) {
                           return null;
                         },
@@ -148,6 +146,31 @@ class _BookingPageState extends State<BookingPage> {
                             optionLabel: "Name",
                             textColor: Colors.black,
                             hintColor: Colors.black),
+                        FormHelper.dropDownWidgetWithLabel(
+                          context,
+                          "Ticket Type",
+                          "Select Ticket ",
+                          this.typeId,
+                          this.ticketType,
+                          (onChangedVal) {
+                            this.typeId = onChangedVal;
+                            print("Selected Ticket : $onChangedVal");
+                            setState(() {});
+                          },
+                          (onValidateVal) {
+                            if (onValidateVal == null) {
+                              return "Please Select a Ticket";
+                            }
+                            return null;
+                          },
+                          borderColor: Colors.blue,
+                          borderFocusColor: Colors.redAccent,
+                          borderRadius: 10,
+                          optionValue: "Id",
+                          optionLabel: "Ticket",
+                          textColor: Colors.black,
+                          hintColor: Colors.black,
+                        ),
                       ],
                     ),
                   )),
