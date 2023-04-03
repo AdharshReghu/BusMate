@@ -54,7 +54,6 @@ class _BookingPageState extends State<BookingPage> {
     return MaterialApp(
       home: Scaffold(
         appBar: displayAppBar("Booking"),
-        bottomNavigationBar: displayNavBar(),
         body: Container(
           color: kBackgroundColor,
           child: Column(
@@ -71,9 +70,11 @@ class _BookingPageState extends State<BookingPage> {
                           style: kNormalText,
                         ),
                       ),
-                      Image.asset(
-                        "assets/Bus.png",
-                        scale: 1.5,
+                      Expanded(
+                        child: Image.asset(
+                          "assets/Bus.png",
+                          scale: 1.5,
+                        ),
                       )
                     ],
                   ),
@@ -83,7 +84,7 @@ class _BookingPageState extends State<BookingPage> {
                   flex: 3,
                   child: Container(
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 50, vertical: 30),
+                        horizontal: 50, vertical: 10),
                     margin: const EdgeInsets.symmetric(horizontal: 20),
                     decoration: BoxDecoration(
                         border: Border.all(

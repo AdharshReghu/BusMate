@@ -21,8 +21,7 @@ class _ConfirmTestState extends State<ConfirmTest> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: kBackgroundColor,
-        appBar: displayAppBar('Home'),
-        bottomNavigationBar: displayNavBar(),
+        appBar: displayAppBar('Confirmation'),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -75,21 +74,21 @@ class _ConfirmTestState extends State<ConfirmTest> {
                 ),
               ),
             ),
-            Expanded(
-                child: Padding(
-              padding: const EdgeInsets.only(
-                  top: 85, bottom: 25, left: 25, right: 25),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 30),
               child: SizedBox(
+                height: 60,
+                width: double.infinity,
                 child: ElevatedButton(
-                  style: kRedButtonStyle,
                   onPressed: () {},
                   child: Text(
                     "Go Home",
                     style: kRedButtonText,
                   ),
+                  style: kRedButtonStyle,
                 ),
               ),
-            ))
+            )
           ],
         ),
       ),

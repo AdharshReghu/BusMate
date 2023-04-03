@@ -22,8 +22,8 @@ class _ProfilePageState extends State<ProfilePage> {
         appBar: displayAppBar(
           "Profile Page",
         ), //function to display app bar is defined in the Bottom_app_bars.dart file
-        bottomNavigationBar:
-            displayNavBar(), //function to display Bottom navigation bar is defined in the Bottom_app_bars.dart file
+        // bottomNavigationBar:
+        //   displayNavBar(), //function to display Bottom navigation bar is defined in the Bottom_app_bars.dart file
         body: Container(
           //overall container covering the body of the profile page
           width: double.infinity,

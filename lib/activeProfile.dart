@@ -1,3 +1,4 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'Bottom_app_bars.dart';
 import 'constants.dart';
@@ -22,7 +23,7 @@ class _ActiveProfileState extends State<ActiveProfile> {
       home: Scaffold(
         backgroundColor: kBackgroundColor,
         appBar: displayAppBar('Home'),
-        bottomNavigationBar: displayNavBar(),
+        //bottomNavigationBar: displayNavBar(),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [

@@ -19,7 +19,6 @@ class _ConfirmBookingState extends State<ConfirmBooking> {
     return MaterialApp(
       home: Scaffold(
         appBar: displayAppBar("Confirm Booking"),
-        bottomNavigationBar: displayNavBar(),
         body: Container(
           color: kBackgroundColor,
           child: Padding(

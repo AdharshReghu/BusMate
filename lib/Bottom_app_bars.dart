@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'constants.dart';
+import 'activeProfile.dart';
+import 'profile_page.dart';
 
+final screens = [ActiveProfile(), ProfilePage()];
 //call this function to display bottom navigation bar
 CurvedNavigationBar displayNavBar() {
   return CurvedNavigationBar(
